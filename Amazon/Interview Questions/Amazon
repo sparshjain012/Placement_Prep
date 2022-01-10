@@ -1,0 +1,57 @@
+I've compiled a list of Amazon questions people have been asked who have had 3 virtual interviews for SDE 1:
+
+
+Two Sum (#1)
+Median of Two Sorted Arrays * (#4)
+Longest Palindromic Substring (#5)
+String to Integer (atoi) (#8)
+Integer to Roman (#12)
+Roman to Integer (#13)
+Valid Parentheses (#20)
+Merge K Sorted Lists (#23)
+Valid Sudoku (#36)
+Combination Sum (#39)
+Permutations (#46)
+Merge Intervals (#56)
+Rotate List (#61)
+Word Search (#79)
+Validate Binary Search Tree(#98)
+Same Tree ~ (#100)
+Symmetric Tree ~ (#101)
+Binary Tree Level Order Traversal (#102)
+Convert Sorted List to Binary Search Tree (#109)
+Populating Next Right Pointers in Each Node (#116)
+Best Time to Buy and Sell Stock (#121)
+Word Ladder II (#126)
+Word Ladder (#127)
+LRU Cache (#146)
+Number of Islands (#200)
+Course Schedule (#207)
+Course Schedule II (#210)
+Integer to English Words (#273)
+Game of Life (#289)
+Find Median from Data Stream (#295)
+Longest Increasing Subsequence (#300)
+Design Tic-Tac-Toe (#348)
+Pacific Atlantic Water Flow (#417)
+Minesweeper (#529)
+Diameter of Binary Tree (#543)
+Reorganize String (#767)
+
+
+Arsh Amazon Sheet :
+1.Calculating Maximum Profit (Multiple Ladders Question)
+2.Longest Mountain 
+3.IPL 2021 - Match Day 2 (similar to maximum in subarray)
+4.Brackets in Matrix Chain Multiplication 
+5.Phone directory (Question similar to this based on Amazon Pay as a service)
+6.Maximum of all subarrays of size k
+7.First non-repeating character in a stream
+8.Count ways to N'th Stair(Order does not matter)
+9.Which among them forms a perfect Sudoku Pattern ?
+10.Nuts and Bolts Problem
+11.Tree Serialization and Deserialization
+12.Column name from a given column number
+13.Rotten Oranges -Multiple Repetitions
+14.Tree Burning 
+15. Delete N nodes after M nodes of a linked list 

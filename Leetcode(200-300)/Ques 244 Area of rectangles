@@ -1,0 +1,45 @@
+Given the coordinates of two rectilinear rectangles in a 2D plane, return the total area covered by the two rectangles.
+
+The first rectangle is defined by its bottom-left corner (ax1, ay1) and its top-right corner (ax2, ay2).
+
+The second rectangle is defined by its bottom-left corner (bx1, by1) and its top-right corner (bx2, by2).
+
+ 
+
+Example 1:
+
+Rectangle Area
+Input: ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2
+Output: 45
+Example 2:
+
+Input: ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2
+Output: 16
+
+
+class Solution {
+public:
+    int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
+         // Area of 1st Rectangle
+    int area1 = abs(ax1 - ax2)* abs(ay1 - ay2);
+ 
+    // Area of 2nd Rectangle
+    int area2 = abs(bx1 - bx2)* abs(by1 - by2);
+ 
+    // Length of intersecting part i.e
+    // start from max(l1.x, l2.x) of
+    // x-coordinate and end at min(r1.x,
+    // r2.x) x-coordinate by subtracting
+    // start from end we get required
+    // lengths
+    int x_dist = min(ax2,bx2)- max(ax1,bx1);
+    int y_dist = (min(ay2,by2)- max(ay1,by1));
+    int areaI = 0;
+    if( x_dist > 0 && y_dist > 0 )
+    {
+        areaI = x_dist * y_dist;
+    }
+     
+    return (area1 + area2 - areaI);
+    }
+};

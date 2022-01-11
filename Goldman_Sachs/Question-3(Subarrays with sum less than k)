@@ -1,0 +1,55 @@
+Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.
+
+ 
+
+Example 1:
+
+Input: nums = [10,5,2,6], k = 100
+Output: 8
+Explanation: The 8 subarrays that have product less than 100 are:
+[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
+Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.
+Example 2:
+
+Input: nums = [1,2,3], k = 0
+Output: 0
+ 
+
+Constraints:
+
+1 <= nums.length <= 3 * 104
+1 <= nums[i] <= 1000
+0 <= k <= 106
+
+
+
+class Solution {
+public:
+    int numSubarrayProductLessThanK(vector<int>& a, int k) {
+        const int n = a.size();
+    long long p = 1;
+    int res = 0;
+    for (int start = 0, end = 0; end < n; end++) {
+
+        // Move right bound by 1 step. Update the product.
+        p *= a[end];
+
+        // Move left bound so guarantee that p is again
+        // less than k.
+        while (start < end && p >= k)
+            p /= a[start++];
+
+        // If p is less than k, update the counter.
+        // Note that this is working even for (start ==
+        // end): it means that the previous window cannot
+        // grow anymore and a single array element is the
+        // only addendum.
+        if (p < k) {
+            int len = end - start + 1;
+            res += len;
+        }
+    }
+
+    return res;
+    }
+};

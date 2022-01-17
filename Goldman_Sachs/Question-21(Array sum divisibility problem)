@@ -1,0 +1,82 @@
+1497. Check If Array Pairs Are Divisible by k
+Medium
+
+757
+
+52
+
+Add to List
+
+Share
+Given an array of integers arr of even length n and an integer k.
+
+We want to divide the array into exactly n / 2 pairs such that the sum of each pair is divisible by k.
+
+Return true If you can find a way to do that or false otherwise.
+
+ 
+
+Example 1:
+
+Input: arr = [1,2,3,4,5,10,6,7,8,9], k = 5
+Output: true
+Explanation: Pairs are (1,9),(2,8),(3,7),(4,6) and (5,10).
+Example 2:
+
+Input: arr = [1,2,3,4,5,6], k = 7
+Output: true
+Explanation: Pairs are (1,6),(2,5) and(3,4).
+Example 3:
+
+Input: arr = [1,2,3,4,5,6], k = 10
+Output: false
+Explanation: You can try all possible pairs to see that there is no way to divide arr into 3 pairs each with sum divisible by 10.
+
+
+class Solution {
+public:
+    bool canArrange(vector<int>& arr, int k) {
+        int n=arr.size();
+     // An odd length array cannot be divided into pairs
+    if (n & 1)
+        return false;
+
+    // Create a frequency array to count occurrences
+    // of all remainders when divided by k.
+    unordered_map<int, int> freq;
+
+    // Count occurrences of all remainders
+    for (int i = 0; i < n; i++)
+        freq[((arr[i] % k) + k) % k]++;
+
+    // Traverse input array and use freq[] to decide
+    // if given array can be divided in pairs
+    for (int i = 0; i < n; i++) {
+        // Remainder of current element
+        int rem = ((arr[i] % k) + k) % k;
+
+        // If remainder with current element divides
+        // k into two halves.
+        if (2 * rem == k) {
+            // Then there must be even occurrences of
+            // such remainder
+            if (freq[rem] % 2 != 0)
+                return false;
+        }
+
+        // If remainder is 0, then there must be even 
+        // number of elements with 0 remainder
+        else if (rem == 0) {
+            if (freq[rem] & 1)
+                return false;
+        }
+
+        // Else number of occurrences of remainder
+        // must be equal to number of occurrences of
+        // k - remainder
+        else if (freq[rem] != freq[k - rem])
+            return false;
+    }
+    return true;
+    }
+};
